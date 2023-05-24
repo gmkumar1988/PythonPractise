@@ -27,3 +27,10 @@ clean = list(filterfalse(isnan, data))
 sorted(clean)
 
 median(clean)
+
+mean([1,2,3,4,5,8,9])
+
+from fractions import Fraction as F
+
+mean([F(3,7),F(1,21),F(5,3),F(1,3)])
+
