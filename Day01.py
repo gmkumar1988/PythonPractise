@@ -34,3 +34,13 @@ from fractions import Fraction as F
 
 mean([F(3,7),F(1,21),F(5,3),F(1,3)])
 
+
+
+# import pip 
+# pip.main(['install','seaborn'])
+
+import pandas as pd
+
+import seaborn as sns
+
+
