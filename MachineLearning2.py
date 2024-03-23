@@ -37,7 +37,7 @@ medical_cost = pd.read_csv("/Users/maheshg/Library/CloudStorage/OneDrive-Microso
 medical_cost.head()
 
 print(medical_cost.head())
-plt.figure(figsize=(10,10))
+# plt.figure(figsize=(10,10))
 plt.scatter(medical_cost['age'],medical_cost['charges'])
 # plt.bar(medical_cost[medical_cost'smoker'],medical_cost['charges'])
 plt.title("Medical Cost Details Based on Age and Charges")
