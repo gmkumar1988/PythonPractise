@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import sklearn
 from sklearn.pipeline import Pipeline
-from sklearn.compose import _column_transformer
+from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler,PolynomialFeatures,OneHotEncoder
 from sklearn.linear_model import LinearRegression,Ridge
 from sklearn.metrics import r2_score,mean_squared_error
@@ -40,13 +40,15 @@ x = medical_cost["smoker"]
 y = medical_cost["charges"]
 
 #Create transformer for one hot encoding the "smoker" column:
-preprocessor = _column_transformer(
-    transfomers = [('smoker',OneHotEncoder(),['smoker'])],
-    remainder = 'passthrough'
+preprocessor = ColumnTransformer(
+    transformers=[('smoker', OneHotEncoder(), ['smoker'])],
+    remainder='passthrough'
 )
 
+
 ###Create Pipeline with transformer and linear regression model
-model = Pipeline(steps=[('preprocessor',preprocessor),
-                        ('regressor',LinearRegression)])
+model = Pipeline(steps=[('preprocessor', preprocessor),
+                        ('regressor', LinearRegression())])
+
 model.fit(x,y)
-print(model.fit(x,y))
+print(model.score(x,y))
