@@ -46,9 +46,37 @@ preprocessor = ColumnTransformer(
 )
 
 
-###Create Pipeline with transformer and linear regression model
-model = Pipeline(steps=[('preprocessor', preprocessor),
-                        ('regressor', LinearRegression())])
+# ###Create Pipeline with transformer and linear regression model
+# model = Pipeline(steps=[('preprocessor', preprocessor),
+#                         ('regressor', LinearRegression())])
+#
+# model.fit(x,y)
+# print(model.score(x,y))
 
-model.fit(x,y)
-print(model.score(x,y))
+
+#create a new dataframe with one-hot encoded categorical variables
+z= pd.get_dummies(medical_cost[["age","sex",
+                                "bmi","children",
+                                "smoker","region"]])
+
+#initialize the linear regression model
+lm =LinearRegression()
+lm.fit(z,y)
+print(lm.score(z,y))
+
+
+#create a training pipeline that uses StandardScaler(), PolynomialFeatures() and LinearRegression()
+#to create a model that can predict the charges value using all the other attributes of the dataset.
+
+# Y and Z use the same values as defined in previous cells
+Input =[('scale',StandardScaler()),('polynomial',
+                                   PolynomialFeatures(include_bias=False)),('model',
+                                                                          LinearRegression())]
+pipe = Pipeline(Input)
+z = z.astype(float)
+pipe.fit(z,y)
+ypipe =pipe.predict(z)
+
+#print  R^2 score
+print(r2_score(y,ypipe))
+
