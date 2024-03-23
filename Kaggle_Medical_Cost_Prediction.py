@@ -27,10 +27,10 @@ print(medical_cost.head(10))
 medical_cost["charges"] = np.round(medical_cost["charges"],2)
 print(medical_cost.head(5))
 ###Exploratory Analysis : Implementing the regression analysis
-# sns.regplot(x = "bmi", y = "charges",
-#             data = medical_cost, line_kws={"color":"red"})
-# plt.ylim(0,)
-
+sns.regplot(x = "bmi", y = "charges",
+            data = medical_cost, line_kws={"color":"red"})
+plt.ylim(0,)
+plt.show()
 ###Exploratory Analysis : Implementing the box plot w.r.t Smoker:
 sns.boxplot(x= "smoker",y="charges",
             data = medical_cost)
@@ -62,7 +62,7 @@ z= pd.get_dummies(medical_cost[["age","sex",
 #initialize the linear regression model
 lm =LinearRegression()
 lm.fit(z,y)
-print(lm.score(z,y))
+print("Value of Linear Regression is :",lm.score(z,y))
 
 
 #create a training pipeline that uses StandardScaler(), PolynomialFeatures() and LinearRegression()
@@ -78,5 +78,4 @@ pipe.fit(z,y)
 ypipe =pipe.predict(z)
 
 #print  R^2 score
-print(r2_score(y,ypipe))
-
+print("value of R2 Co Ordination is ",r2_score(y,ypipe))
