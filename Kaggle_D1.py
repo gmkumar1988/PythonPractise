@@ -2,6 +2,13 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import sklearn
+from sklearn.pipeline import Pipeline
+from sklearn.compose import _column_transformer
+from sklearn.preprocessing import StandardScaler,PolynomialFeatures,OneHotEncoder
+from sklearn.linear_model import LinearRegression,Ridge
+from sklearn.metrics import r2_score,mean_squared_error
+from sklearn.model_selection import cross_val_score,train_test_split
 medical_cost = pd.read_csv("/Users/maheshg/Library/CloudStorage/OneDrive-Microsoft365/Sample Datasets Kaggle/medical_insurance.csv")
 medical_cost.head()
 medical_cost.replace('?',np.nan, inplace=True)
@@ -27,14 +34,19 @@ print(medical_cost.head(5))
 ###Exploratory Analysis : Implementing the box plot w.r.t Smoker:
 sns.boxplot(x= "smoker",y="charges",
             data = medical_cost)
-plt.show()
-# print(mean_age.head())
-# print(medical_cost.head())
-# plt.figure(figsize=(10,10))
-# plt.scatter(medical_cost['age'],medical_cost['charges'])
-# plt.bar(medical_cost[medical_cost'smoker'],medical_cost['charges'])
-# plt.plot(medical_cost['age'],(medical_cost['age']/ -100) + 40, c= 'red')
-# plt.title("Medical Cost Details Based on Age and Charges")
-# plt.xlabel("Age Details")
-# plt.ylabel("Charges")
 # plt.show()
+###Fitting a linear regression model : (Model Development):
+x = medical_cost["smoker"]
+y = medical_cost["charges"]
+
+#Create transformer for one hot encoding the "smoker" column:
+preprocessor = _column_transformer(
+    transfomers = [('smoker',OneHotEncoder(),['smoker'])],
+    remainder = 'passthrough'
+)
+
+###Create Pipeline with transformer and linear regression model
+model = Pipeline(steps=[('preprocessor',preprocessor),
+                        ('regressor',LinearRegression)])
+model.fit(x,y)
+print(model.fit(x,y))
