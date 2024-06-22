@@ -1,0 +1,5 @@
+import pandas as pd
+import numpy as np
+Power = 1 - Type II Error
+Pr(True Positive) = 1 - Pr(False Negative)
+# Pr(False Positive) = 1 - Pr(True Negative)
