@@ -35,7 +35,7 @@ print(result_minimum)
 
 #Maximum Value of the Salary for Data Professionals in India:
 result_maximum = np.max(dataprofession["Salary"])
-print(result_maximum)
+print(Value of the maximum value is, ""result_maximum")
 
 #Computing the Standard Deviation of the Salary for Data Professionals :
 result_standard_deviation = np.std(dataprofession["Salary"], ddof=1)
