@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/maheshg/Dropbox/git%20repos/PythonPractise/PythonPractise/mlruns/0/bdf4ab1d19884432bc3d8563271148f1/artifacts
+end_time: 1700400769214
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bdf4ab1d19884432bc3d8563271148f1
+run_name: legendary-calf-530
+run_uuid: bdf4ab1d19884432bc3d8563271148f1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1700400767927
+status: 3
+tags: []
+user_id: maheshg
