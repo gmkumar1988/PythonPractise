@@ -19,9 +19,9 @@ social_network_ads = pd.read_csv("/Users/maheshg/Library/CloudStorage/OneDrive-M
 #Displaying the loaded dataframe:
 print(social_network_ads)
 #Exploring the dataset:
-# print(social_network_ads.dtypes)
-# print(social_network_ads.shape)
-# print(social_network_ads.head())
+print(social_network_ads.dtypes)
+print(social_network_ads.shape)
+print(social_network_ads.head())
 
 #Visualization of Exploration of the data:
 #plot a histogram of count by age_range, with one series per gender
