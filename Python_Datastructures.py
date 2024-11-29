@@ -130,5 +130,51 @@ print(np.isnan(np.nan))
 
 students_scores = {'Alice' : 'Physics',
                    'Jack':'Chemistry',
-                   'Molly':'English'}
-print(pd.Series(students_scores))
+                   'Molly':'English',
+                   'Sam' :'History'}
+s = pd.Series(students_scores)
+print(s)
+
+#print(s.iloc[2])
+print(s[2])
+class_code = {90 : 'Chemistry',
+              100: 'English'}
+s = pd.Series(class_code)
+print(s)
+
+grades = pd.Series([90,80,70,60])
+print(len(grades))
+total = 0
+for grade in grades:
+    total += grade
+print(total/len(grades))
+
+total = np.sum(grades)
+print(total/len(grades))
+
+numbers_random = pd.Series(np.random.randint(0,1000,10000))
+print(numbers_random.head(10))
+print(len(numbers_random))
+
+record1 = pd.Series({'name' :'Mahesh',
+                    'Class':'English',
+                    'Grade' : 'A'})
+record2 = pd.Series({'name':'Raghavi',
+                    'Class':'Chemistry',
+                     'Grade':'B'})
+record3 = pd.Series({'name':'Mirula',
+                     'Class':'Biology',
+                     'Grade':'A++'})
+df = pd.DataFrame([record1,record2,record3])
+print(df)
+print(df.shape)
+print(df.dtypes)
+
+students = pd.Series({'name':'Mahesh',
+                      'class':'Chemistry',
+                      'grade':'A'},
+                     {'name':'Mirula',
+                      'class':'English',
+                      'grade':'B'})
+df = pd.DataFrame(students,index=['school1','school2'])
+print(df)
