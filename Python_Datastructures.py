@@ -185,14 +185,62 @@ import pandas as pd
 #
 # print(dataframe.head(10))
 # print(dataframe['SelfEmployed'].unique())
+#
+# dataframe2 = pd.read_csv("/Users/maheshg/Dropbox/Sample Datasets Kaggle/US Census/acs2015_census_tract_data.csv", index_col=0)
+# print(dataframe2)
+# # rm(dataframe2)
+# print(dataframe2.isna)
+# mask = dataframe2.isnull()
+# # print(mask.head(10))
+# #
+# # print(dropna().head(10))
+# # dataframe2.fillna(0,inplace=True)
+# # print(dataframe2.head(19))
+#
+# dataframe3 = pd.DataFrame ({'A':[1,2,3,4,5],
+#                          'B': [3,45,6,4,2],
+#                          'C':['a','b','c','d','e']})
+# print(dataframe3)
+#
+# dataframe3.replace(1,100)
+# dataframe3.replace([1,3],[100,1000])
+# print(dataframe3)
+import pandas as pd
+s1 = pd.Series({1: 'Alice', 2: 'Jack', 3: 'Molly'})
+s2 = pd.Series({'Alice': 1, 'Jack': 2, 'Molly': 3})
 
-dataframe2 = pd.read_csv("/Users/maheshg/Dropbox/Sample Datasets Kaggle/US Census/acs2015_census_tract_data.csv", index_col=0)
-print(dataframe2)
-# rm(dataframe2)
-print(dataframe2.isna)
-mask = dataframe2.isnull()
-print(mask.head(10))
+# print(s1.loc[1])
+# print(s2[1])
+# print(s2.loc[1])
+# print(s2.iloc[1])
+#
+# import numpy as np
+#
+# data_array = np.array([['Alice', 24, 'New York'], ['Bob', 27, 'Los Angeles'], ['Charlie', 22, 'Chicago']])
+# df3 = pd.DataFrame(data_array, columns=['Name', 'Age', 'City'])
+# print(df3)
 
-print(dropna().head(10))
-dataframe2.fillna(0,inplace=True)
-print(dataframe2.head(19))
+
+import numpy as np
+data_array1 = np.array([[1,337,118],[2,324,107],[3,316,104],[4,322,110],[5,314,103]])
+data_frame5 = pd.DataFrame(data_array1, columns= ['Serial No','gre score','toefl score'])
+print(data_frame5)
+
+# given DataFrame df we want to keep only the records with a toefl score greater than 105
+# print(data_frame5[data_frame5['toefl score'] > 105])
+# print(data_frame5.where(data_frame5['toefl score'] > 105).dropna())
+print(data_frame5.where(data_frame5['toefl score'] > 105))
+# import pandas as pd
+# sdata = {'Ohio': 35000, 'Texas': 71000, 'Oregon': 16000, 'Utah': 5000}
+# obj1 = pd.Series(sdata)
+# states = ['California', 'Ohio', 'Oregon', 'Texas']
+# obj2 = pd.Series(sdata, index=states)
+# obj3 = pd.isnull(obj2)
+#
+# print(obj2['California'] == None)
+# print(obj3['California'])
+# x = obj2['California']
+# print(obj2['California'] != x)
+
+# import math
+# print(math.isnan(obj2['California']))
